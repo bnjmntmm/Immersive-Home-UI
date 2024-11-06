@@ -26,7 +26,6 @@ script = ExtResource("1_1oh5j")
 mesh = SubResource("BoxMesh_ir3co")
 
 [node name="Raycast" parent="." instance=ExtResource("1_3p68p")]
-script = null
 
 [node name="AutoHandtracker" parent="." instance=ExtResource("3_pjmb2")]
 visible = false
