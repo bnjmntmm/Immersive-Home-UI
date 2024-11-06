@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chu0upvkheqlb"]
 
-[ext_resource type="Shader" path="res://assets/materials/hands.gdshader" id="1_kyekt"]
+[ext_resource type="Shader" path="res://addons/immersive-home-ui/assets/materials/hands.gdshader" id="1_kyekt"]
 
 [resource]
 render_priority = 50

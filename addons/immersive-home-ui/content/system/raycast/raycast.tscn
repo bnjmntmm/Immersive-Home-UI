@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://addons/immersive-home-ui/content/system/raycast/raycast.gdshader" id="3_lpfe7"]
 [ext_resource type="Texture2D" uid="uid://cy5dna78q6tn6" path="res://addons/immersive-home-ui/assets/models/ray/ray.png" id="4_fe8o8"]
 [ext_resource type="ArrayMesh" uid="uid://d3kriab522o2w" path="res://addons/immersive-home-ui/assets/models/ray/ray.obj" id="5_3o4gy"]
-[ext_resource type="Material" path="res://addons/immersive-home-ui/assets/materials/grid.tres" id="7_tnbkv"]
+[ext_resource type="Material" uid="uid://j8dm7t25nhpu" path="res://addons/immersive-home-ui/assets/materials/grid.tres" id="7_tnbkv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ov0gt"]
 render_priority = 0

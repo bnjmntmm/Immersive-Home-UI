@@ -21,6 +21,7 @@ TouchManager="*res://addons/immersive-home-ui/lib/utils/touch/touch.gd"
 EventSystem="*res://addons/immersive-home-ui/lib/globals/event_system.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
+App="*res://addons/immersive-home-ui/lib/globals/main.gd"
 
 [editor_plugins]
 
