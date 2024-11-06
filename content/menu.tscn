@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4iam6i42je4r"]
+[gd_scene load_steps=8 format=3 uid="uid://c4iam6i42je4r"]
 
 [ext_resource type="Script" path="res://addons/immersive-home-ui/content/functions/movable.gd" id="1_yr4fh"]
 [ext_resource type="Shader" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="2_rxe47"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/immersive-home-ui/content/ui/components/button/button.tscn" id="3_m7hau"]
+[ext_resource type="PackedScene" uid="uid://pk5k1q8bx0rj" path="res://addons/immersive-home-ui/content/ui/components/slider/slider.tscn" id="4_k72ej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xykrk"]
+size = Vector3(0.4, 0.3, 0.01)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sm131"]
 render_priority = 0
@@ -20,6 +23,7 @@ shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
 [sub_resource type="QuadMesh" id="QuadMesh_284w0"]
+size = Vector2(0.4, 0.3)
 
 [node name="Menu" type="StaticBody3D"]
 
@@ -35,3 +39,10 @@ script = ExtResource("1_yr4fh")
 material_override = SubResource("ShaderMaterial_sm131")
 mesh = SubResource("QuadMesh_284w0")
 skeleton = NodePath("../..")
+
+[node name="Button" parent="AnimationContainer" instance=ExtResource("3_m7hau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128477, 0.075445, 0)
+
+[node name="Slider" parent="AnimationContainer" instance=ExtResource("4_k72ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0772593, 0)
+script = null
