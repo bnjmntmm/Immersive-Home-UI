@@ -42,7 +42,7 @@ skeleton = NodePath("../..")
 
 [node name="Button" parent="AnimationContainer" instance=ExtResource("3_m7hau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128477, 0.075445, 0)
+label = "Button 1"
 
 [node name="Slider" parent="AnimationContainer" instance=ExtResource("4_k72ej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0772593, 0)
-script = null
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070832, 0)
