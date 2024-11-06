@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://addons/immersive-home-ui/content/functions/movable.gd" id="2_8coxu"]
 [ext_resource type="Shader" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="3_htaoi"]
 [ext_resource type="Script" path="res://addons/immersive-home-ui/content/ui/components/tabs/tabs.gd" id="4_eavfx"]
-[ext_resource type="PackedScene" uid="uid://crrb0l3ekuotj" path="res://addons/immersive-home-ui/content/ui/menu/edit/edit_menu.tscn" id="4_r2raj"]
+[ext_resource type="PackedScene" path="res://addons/immersive-home-ui/content/ui/menu/edit/edit_menu.tscn" id="4_r2raj"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/immersive-home-ui/content/ui/components/button/button.tscn" id="5_w4i01"]
 [ext_resource type="Script" path="res://addons/immersive-home-ui/content/ui/components/tabs/tabs_content.gd" id="6_7rntr"]
 [ext_resource type="PackedScene" uid="uid://ddpxthb414unp" path="res://addons/immersive-home-ui/content/ui/menu/view/view_menu.tscn" id="8_71pkg"]
-[ext_resource type="PackedScene" uid="uid://c01gkeldvjwtr" path="res://addons/immersive-home-ui/content/ui/menu/room/room_menu.tscn" id="10_u4i1x"]
-[ext_resource type="PackedScene" uid="uid://c6r4higceibif" path="res://addons/immersive-home-ui/content/ui/menu/settings/settings_menu.tscn" id="11_7wm6b"]
-[ext_resource type="AudioStream" uid="uid://nmm8y0xt5wyj" path="res://addons/immersive-home-ui/assets/sound/open_menu.wav" id="12_dsnuc"]
-[ext_resource type="AudioStream" uid="uid://bnx2uv4nmra8f" path="res://addons/immersive-home-ui/assets/sound/close_menu.wav" id="13_nnnln"]
+[ext_resource type="PackedScene" path="res://addons/immersive-home-ui/content/ui/menu/room/room_menu.tscn" id="10_u4i1x"]
+[ext_resource type="PackedScene" path="res://addons/immersive-home-ui/content/ui/menu/settings/settings_menu.tscn" id="11_7wm6b"]
+[ext_resource type="AudioStream" uid="uid://bdh37tnn3l31g" path="res://addons/immersive-home-ui/assets/sounds/open_menu.wav" id="12_dsnuc"]
+[ext_resource type="AudioStream" uid="uid://ddqa3v4nbiobj" path="res://addons/immersive-home-ui/assets/sounds/close_menu.wav" id="13_nnnln"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e1esh"]
 size = Vector3(0.51, 0.32, 0.034332)
@@ -221,10 +221,10 @@ skeleton = NodePath("../..")
 [node name="Tabs" type="Node3D" parent="AnimationContainer" node_paths=PackedStringArray("initial_selected")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.005, 0)
 script = ExtResource("4_eavfx")
-initial_selected = NodePath("View")
 vertical = true
 gap = 0.01
 size = Vector3(0.05, 0.4, 1)
+initial_selected = NodePath("View")
 
 [node name="View" parent="AnimationContainer/Tabs" instance=ExtResource("5_w4i01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
@@ -268,18 +268,22 @@ script = ExtResource("6_7rntr")
 tabs = NodePath("../Tabs")
 
 [node name="ViewMenu" parent="AnimationContainer/TabsContent" instance=ExtResource("8_71pkg")]
+script = null
 
 [node name="EditMenu" parent="AnimationContainer/TabsContent" instance=ExtResource("4_r2raj")]
 visible = false
+script = null
 
 [node name="RoomMenu" parent="AnimationContainer/TabsContent" instance=ExtResource("10_u4i1x")]
 visible = false
+script = null
 
 [node name="AutomateMenu" type="Node3D" parent="AnimationContainer/TabsContent"]
 visible = false
 
 [node name="SettingsMenu" parent="AnimationContainer/TabsContent" instance=ExtResource("11_7wm6b")]
 visible = false
+script = null
 
 [node name="NotifyPlace" type="Marker3D" parent="AnimationContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.06, 0)

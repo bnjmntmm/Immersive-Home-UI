@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://nm8px6n81c73"]
+[gd_scene load_steps=9 format=3 uid="uid://nm8px6n81c73"]
 
+[ext_resource type="Script" path="res://content/main.gd" id="1_b7ybf"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/immersive-home-ui/content/system/controller_right/controller_right.tscn" id="1_byfyv"]
 [ext_resource type="Script" path="res://content/functions/start_xr.gd" id="1_p7vx4"]
 [ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/immersive-home-ui/content/system/controller_left/controller_left.tscn" id="2_q0bhy"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="2_rnd4e"]
 [ext_resource type="Environment" uid="uid://bgyf0w7nvglw6" path="res://addons/immersive-home-ui/assets/environment.tres" id="4_8l5ti"]
+[ext_resource type="PackedScene" uid="uid://c3kdssrmv84kv" path="res://addons/immersive-home-ui/content/ui/menu/menu.tscn" id="6_u44vn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jq4o6"]
 
-[node name="Root" type="Node3D"]
+[node name="Main" type="Node3D"]
+script = ExtResource("1_b7ybf")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 
@@ -35,3 +38,6 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_8l5ti")
+
+[node name="Menu" parent="." instance=ExtResource("6_u44vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.246813)
