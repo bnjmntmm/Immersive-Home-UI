@@ -4,8 +4,12 @@ This startup code contains a the startup code from the Godot docs (https://docs.
 It also contains code to synchronise the headset orientation at startup, 
 without it the headset usually starts in the incorrect orientation
 """
+
+const environment_passthrough_material = preload ("res://addons/immersive-home-ui/assets/environment_passthrough.tres")
+
 var xr_interface: XRInterface
 @onready var uninitialized_hmd_transform:Transform3D = XRServer.get_hmd_transform()
+@onready var environment: WorldEnvironment = $WorldEnvironment
 var hmd_synchronized:bool = false
 
 func _ready():
@@ -19,10 +23,14 @@ func init_xr():
 	if xr_interface and xr_interface.is_initialized():
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED) # Turn off v-sync
 		get_viewport().use_xr = true # Change our main viewport to output to the HMD
+		
+		get_viewport().transparent_bg = true # For XR Passthrough
+		
 		xr_interface.pose_recentered.connect(_on_openxr_pose_recentered)
 		print("OpenXR initialized successfully")
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
 
 func sync_headset_orientation():
 	"""
