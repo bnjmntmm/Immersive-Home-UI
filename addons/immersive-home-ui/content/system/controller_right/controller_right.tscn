@@ -29,8 +29,6 @@ mesh = SubResource("BoxMesh_ir3co")
 
 [node name="AutoHandtracker" parent="." instance=ExtResource("3_pjmb2")]
 visible = false
-visiblehandtrackskeleton = false
-enableautotracker = false
 
 [node name="hand_r" parent="." instance=ExtResource("2_kex6u")]
 
