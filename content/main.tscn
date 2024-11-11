@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nm8px6n81c73"]
+[gd_scene load_steps=11 format=3 uid="uid://nm8px6n81c73"]
 
 [ext_resource type="Script" path="res://content/main.gd" id="1_b7ybf"]
 [ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/immersive-home-ui/content/system/controller_right/controller_right.tscn" id="1_byfyv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="6_o1mkk"]
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/immersive-home-ui/assets/environment_passthrough.tres" id="7_ho7ox"]
 [ext_resource type="PackedScene" uid="uid://c4iam6i42je4r" path="res://content/menu.tscn" id="7_u0yqw"]
+[ext_resource type="Script" path="res://content/xr_hack.gd" id="8_2rrx5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sitdr"]
 
@@ -41,10 +42,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.352682)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("7_ho7ox")
 
+[node name="ColorSphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39327, 0.99556, -0.336962)
+mesh = SubResource("SphereMesh_e1vut")
+
 [node name="StartXR" parent="." instance=ExtResource("6_o1mkk")]
 
 [node name="XRSimulator" parent="." instance=ExtResource("2_rnd4e")]
 
-[node name="ColorSphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39327, 0.99556, -0.336962)
-mesh = SubResource("SphereMesh_e1vut")
+[node name="XRHack" type="Node" parent="."]
+script = ExtResource("8_2rrx5")
