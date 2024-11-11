@@ -276,7 +276,7 @@ func _process(delta):
 
 	if handtrackingactive:
 		var oxrjps = getoxrjointpositions()
-		var xrt = xr_origin.global_transform
+		var xrt = xr_origin.global_transform * XRServer.get_reference_frame()
 		if $AutoTracker.autotrackeractive:
 			$AutoTracker.autotrackgestures(oxrjps, xrt, xr_camera_node)
 		if applymiddlefingerfix:
