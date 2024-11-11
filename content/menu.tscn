@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4iam6i42je4r"]
+[gd_scene load_steps=9 format=3 uid="uid://c4iam6i42je4r"]
 
+[ext_resource type="Script" path="res://content/menu.gd" id="1_26bao"]
 [ext_resource type="Script" path="res://addons/immersive-home-ui/content/functions/movable.gd" id="1_yr4fh"]
 [ext_resource type="Shader" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="2_rxe47"]
 [ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/immersive-home-ui/content/ui/components/button/button.tscn" id="3_m7hau"]
@@ -26,6 +27,7 @@ shader_parameter/grain_amount = 0.02
 size = Vector2(0.4, 0.3)
 
 [node name="Menu" type="StaticBody3D"]
+script = ExtResource("1_26bao")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_xykrk")
@@ -33,16 +35,40 @@ shape = SubResource("BoxShape3D_xykrk")
 [node name="Moveable" type="Node" parent="."]
 script = ExtResource("1_yr4fh")
 
-[node name="AnimationContainer" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimationContainer"]
+[node name="Background" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_sm131")
 mesh = SubResource("QuadMesh_284w0")
-skeleton = NodePath("../..")
 
-[node name="Button" parent="AnimationContainer" instance=ExtResource("3_m7hau")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128477, 0.075445, 0)
-label = "Button 1"
+[node name="BtnVisible" parent="." instance=ExtResource("3_m7hau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00298578, -0.0575032, 0)
+label = "Visible"
 
-[node name="Slider" parent="AnimationContainer" instance=ExtResource("4_k72ej")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070832, 0)
+[node name="SliderRed" parent="." instance=ExtResource("4_k72ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0958168, 0)
+value = 0.0
+step = 0.1
+
+[node name="SliderLabel" type="Label3D" parent="SliderRed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132318, 0.00225074, 0)
+pixel_size = 0.001
+text = "Red"
+
+[node name="SliderBlue" parent="." instance=ExtResource("4_k72ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00536172, 0)
+value = 0.0
+step = 0.1
+
+[node name="SliderLabel" type="Label3D" parent="SliderBlue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132318, 0.00225074, 0)
+pixel_size = 0.001
+text = "Blue"
+
+[node name="SliderGreen" parent="." instance=ExtResource("4_k72ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0516053, 0)
+value = 0.0
+step = 0.1
+
+[node name="SliderLabel" type="Label3D" parent="SliderGreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132318, 0.00225074, 0)
+pixel_size = 0.001
+text = "Green"
