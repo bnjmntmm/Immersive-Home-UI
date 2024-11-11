@@ -93,7 +93,7 @@ func _on_grab_move(event: EventPointer):
 
 		if resizable == false:
 			new_direction = new_direction.normalized() * initial_direction.length()
-		
+
 		"""
 		if get_tree().debug_collisions_hint:
 			DebugDraw3D.draw_line(new_position, new_position + new_direction, Color(1, 0, 0))

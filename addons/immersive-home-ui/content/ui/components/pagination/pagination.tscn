@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bef3gamrm6at2"]
 
 [ext_resource type="Script" path="res://content/ui/components/pagination/pagination.gd" id="1_3ylfj"]
-[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://content/ui/components/button/button.tscn" id="2_lsc4w"]
+[ext_resource type="PackedScene" uid="uid://bsjqdvkt0u87c" path="res://addons/immersive-home-ui/content/ui/components/button/button.tscn" id="2_lsc4w"]
 
 [node name="Pagination" type="Node3D"]
 script = ExtResource("1_3ylfj")
