@@ -37,13 +37,13 @@ transform = Transform3D(1, 0, 0, 0, 0.230865, 0.972986, 0, -0.972986, 0.230865, 
 visible = false
 
 [node name="Menu" parent="." instance=ExtResource("7_u0yqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.352682)
+transform = Transform3D(0.787312, 0, 0.616555, 0, 1, 0, -0.616555, 0, 0.787312, -0.431835, 1.1028, -0.584926)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("7_ho7ox")
 
 [node name="ColorSphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39327, 0.99556, -0.336962)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.498461, 1.38478, -0.625128)
 mesh = SubResource("SphereMesh_e1vut")
 
 [node name="StartXR" parent="." instance=ExtResource("6_o1mkk")]
