@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://wgnowarejk5y"]
 
 [ext_resource type="Script" path="res://content/ui/components/select/select.gd" id="1_0yka7"]
-[ext_resource type="PackedScene" uid="uid://dnam3fe36gg62" path="res://content/ui/components/panel/panel.tscn" id="2_5mspw"]
+[ext_resource type="PackedScene" uid="uid://dnam3fe36gg62" path="res://addons/immersive-home-ui/content/ui/components/panel/panel.tscn" id="2_5mspw"]
 [ext_resource type="Shader" path="res://content/ui/components/panel/glass.gdshader" id="3_8yxox"]
-[ext_resource type="FontVariation" uid="uid://sshfnckriqxn" path="res://assets/icons/icons.tres" id="4_61i7u"]
+[ext_resource type="FontVariation" uid="uid://sshfnckriqxn" path="res://addons/immersive-home-ui/assets/icons/icons.tres" id="4_61i7u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81jws"]
 resource_local_to_scene = true

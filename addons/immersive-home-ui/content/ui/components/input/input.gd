@@ -86,9 +86,10 @@ func _input(event):
 func _process(_delta):
 	if Engine.is_editor_hint():
 		return
-
+	"""
 	if get_tree().debug_collisions_hint:
 		_draw_debug_text_gaps()
+	"""
 	
 func _on_press_down(event):
 	if disabled:

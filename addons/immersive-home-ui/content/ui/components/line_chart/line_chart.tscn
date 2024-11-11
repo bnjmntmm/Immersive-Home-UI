@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cwvykoymlrrel"]
 
 [ext_resource type="Script" path="res://content/ui/components/line_chart/line_chart.gd" id="1_n7fu8"]
-[ext_resource type="PackedScene" uid="uid://bb3shmvedk1oh" path="res://content/ui/components/line_chart/x_axis.tscn" id="2_2ow77"]
+[ext_resource type="PackedScene" uid="uid://bb3shmvedk1oh" path="res://addons/immersive-home-ui/content/ui/components/line_chart/x_axis.tscn" id="2_2ow77"]
 [ext_resource type="Shader" path="res://content/ui/components/line_chart/line_chart.gdshader" id="2_ryi4h"]
-[ext_resource type="PackedScene" uid="uid://bs5wjs1sf67il" path="res://content/ui/components/line_chart/y_axis.tscn" id="3_48ptx"]
+[ext_resource type="PackedScene" uid="uid://bs5wjs1sf67il" path="res://addons/immersive-home-ui/content/ui/components/line_chart/y_axis.tscn" id="3_48ptx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20gpn"]
 cull_mode = 2
