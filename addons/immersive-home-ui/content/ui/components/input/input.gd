@@ -87,9 +87,11 @@ func _process(_delta):
 	if Engine.is_editor_hint():
 		return
 
+	"""
 	if get_tree().debug_collisions_hint:
 		_draw_debug_text_gaps()
-	
+	"""
+
 func _on_press_down(event):
 	if disabled:
 		return
@@ -165,6 +167,7 @@ func _on_focus_out(_event):
 	panel.active = false
 	_update_placeholder()
 
+"""
 func _draw_debug_text_gaps():
 	if text_handler.gap_offsets == null:
 		return
@@ -176,6 +179,7 @@ func _draw_debug_text_gaps():
 			label.to_global(Vector3(offset, 0.01, 0)),
 			Color(1, 0, 0) if i != text_handler.overflow_index else Color(0, 1, 0)
 		)
+"""
 
 func _update_placeholder():
 	var show_placeholder = text == ""&&panel.active == false
