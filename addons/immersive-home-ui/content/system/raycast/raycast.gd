@@ -52,16 +52,6 @@ func _ready():
 		EventSystem.emit_action(action_name, value, initiator)
 	)
 
-	R.effect(func(_arg):
-		default_cursor.visible = true
-		"""
-		var style=Store.settings.state.cursor_style
-
-		default_cursor.visible=style == 0
-		retro_cursor.visible=style == 1
-		"""
-	)
-
 func _physics_process(_delta):
 	_handle_cursor()
 	_handle_grid()

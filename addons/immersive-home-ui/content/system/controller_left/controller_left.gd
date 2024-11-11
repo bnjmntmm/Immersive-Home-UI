@@ -5,7 +5,6 @@ const Initiator = preload ("res://addons/immersive-home-ui/lib/utils/pointer/ini
 const Finger = preload ("res://addons/immersive-home-ui/lib/utils/touch/finger.gd")
 const Touch = preload ("res://addons/immersive-home-ui/lib/utils/touch/touch.gd")
 const Collide = preload ("res://addons/immersive-home-ui/lib/utils/touch/collide.gd")
-const Entity = preload ("res://addons/immersive-home-ui/content/entities/entity.gd")
 
 @onready var hand = $hand_l
 @onready var hand_mesh = $hand_l/Armature/Skeleton3D/mesh_Hand_L
@@ -15,15 +14,7 @@ const Entity = preload ("res://addons/immersive-home-ui/content/entities/entity.
 @onready var thumb_tip = $ThumbTip
 @onready var middle_tip = $MiddleTip
 
-@onready var mini_view_button = $Palm/QuickActions/MiniView
-@onready var temperature_button = $Palm/QuickActions/Temperature
-@onready var humidity_button = $Palm/QuickActions/Humidity
-
-@onready var palm = $Palm
 @onready var ray: RayCast3D = $Raycast
-@onready var quick_actions = $Palm/QuickActions
-@onready var entity_settings = $Palm/Settings
-@onready var entity_settings_button = $Palm/Settings/SettingsButton
 
 @export var show_grid = false:
 	set(value):
@@ -48,49 +39,8 @@ var grip_distance = 0.02
 var pressed = false
 var grabbed = false
 
-var moving_entity = null
-
 func _ready():
 	_setup_hand()
-
-	palm.remove_child(entity_settings)
-
-	EventSystem.on_ray_enter.connect(func(event: EventPointer):
-		if event.initiator.is_right() == true: return
-		if moving_entity != null: return
-
-		var entity=_get_entity(event.target)
-
-		if entity != null&&entity.has_method("toggle_settings")&&entity_settings.is_inside_tree() == false:
-			palm.add_child(entity_settings)
-			moving_entity=entity
-	)
-
-	EventSystem.on_ray_leave.connect(func(event: EventPointer):
-		if event.initiator.is_right() == true: return
-		var entity=_get_entity(event.target)
-
-		if moving_entity != null&&moving_entity == entity&&entity_settings.is_inside_tree():
-			palm.remove_child(entity_settings)
-			moving_entity=null
-	)
-
-	entity_settings_button.on_button_up.connect(func():
-		if moving_entity == null:
-			return
-
-		moving_entity.toggle_settings()
-	)
-
-func _process(_delta):
-	if !hand_active:
-		if quick_actions.is_inside_tree(): palm.remove_child(quick_actions)
-		return
-
-	if App.camera.global_transform.basis.z.dot(palm.global_transform.basis.x) > 0.85:
-		if quick_actions.is_inside_tree() == false: palm.add_child(quick_actions)
-	else:
-		if quick_actions.is_inside_tree(): palm.remove_child(quick_actions)
 
 func _physics_process(_delta):
 	if !hand_active: return
@@ -130,18 +80,6 @@ func _setup_hand():
 		hand_mesh.visible=active
 	)
 
-	mini_view_button.on_button_up.connect(func():
-		pass
-	)
-
-	temperature_button.on_button_up.connect(func():
-		pass
-	)
-
-	humidity_button.on_button_up.connect(func():
-		pass
-	)
-
 	initiator.type = Initiator.Type.HAND_LEFT
 	initiator.node = self
 
@@ -158,12 +96,3 @@ func _is_hand_simulated():
 		return tracker.hand_tracking_source == XRHandTracker.HAND_TRACKING_SOURCE_CONTROLLER
 
 	return false
-
-func _get_entity(node: Node):
-	if node is Entity:
-		return node
-
-	if node.get_parent() == null:
-		return null
-
-	return _get_entity(node.get_parent())
