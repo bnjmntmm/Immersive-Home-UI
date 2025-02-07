@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://nm8px6n81c73"]
+[gd_scene load_steps=8 format=3 uid="uid://nm8px6n81c73"]
 
-[ext_resource type="Script" path="res://content/main.gd" id="1_b7ybf"]
-[ext_resource type="PackedScene" uid="uid://biu66ihmvmku3" path="res://addons/immersive-home-ui/content/system/controller_right/controller_right.tscn" id="1_byfyv"]
-[ext_resource type="PackedScene" uid="uid://b30w6tywfj4fp" path="res://addons/immersive-home-ui/content/system/controller_left/controller_left.tscn" id="2_q0bhy"]
+[ext_resource type="Script" uid="uid://c8ldvl1lg63vx" path="res://content/main.gd" id="1_b7ybf"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="2_rnd4e"]
-[ext_resource type="Script" path="res://content/start_xr.gd" id="7_4hwjd"]
+[ext_resource type="Script" uid="uid://dm8xrncytogh2" path="res://content/start_xr.gd" id="7_4hwjd"]
 [ext_resource type="Environment" uid="uid://kvhlukn86wek" path="res://addons/immersive-home-ui/assets/environment_passthrough.tres" id="7_ho7ox"]
 [ext_resource type="PackedScene" uid="uid://c4iam6i42je4r" path="res://content/menu.tscn" id="7_u0yqw"]
 
@@ -22,14 +20,6 @@ script = ExtResource("1_b7ybf")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="XRControllerRight" parent="XROrigin3D" instance=ExtResource("1_byfyv")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
-
-[node name="XRControllerLeft" parent="XROrigin3D" instance=ExtResource("2_q0bhy")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.230865, 0.972986, 0, -0.972986, 0.230865, 0, 1.63309, 0)

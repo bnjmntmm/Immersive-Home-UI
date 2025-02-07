@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsjqdvkt0u87c"]
+[gd_scene load_steps=10 format=3 uid="uid://bsjqdvkt0u87c"]
 
-[ext_resource type="Script" path="res://addons/immersive-home-ui/content/ui/components/button/button.gd" id="1_74x7g"]
-[ext_resource type="Shader" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="2_db5by"]
-[ext_resource type="Script" path="res://addons/immersive-home-ui/content/ui/components/panel/panel.gd" id="3_skm86"]
+[ext_resource type="Script" uid="uid://b72sbq51xtwlg" path="res://addons/immersive-home-ui/content/ui/components/button/button.gd" id="1_74x7g"]
+[ext_resource type="Shader" uid="uid://dj86mg7eh85gt" path="res://addons/immersive-home-ui/content/ui/components/panel/glass.gdshader" id="2_db5by"]
+[ext_resource type="Script" uid="uid://ci3n4gka3mako" path="res://addons/immersive-home-ui/content/ui/components/panel/panel.gd" id="3_skm86"]
 [ext_resource type="AudioStream" uid="uid://4lafipbwp1jh" path="res://addons/immersive-home-ui/assets/sounds/click.wav" id="4_51sb0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w8rdk"]
@@ -20,12 +20,19 @@ shader_parameter/corner_radius = 0.2
 shader_parameter/roughness = 0.3
 shader_parameter/grain_amount = 0.02
 
-[sub_resource type="QuadMesh" id="QuadMesh_dplrn"]
+[sub_resource type="QuadMesh" id="QuadMesh_o18gj"]
 size = Vector2(0.04, 0.04)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xwopm"]
 resource_local_to_scene = true
 size = Vector3(0.04, 0.04, 0.01)
+
+[sub_resource type="GDScript" id="GDScript_6m35c"]
+script/source = "
+extends StaticBody3D
+func pointer_event(event):
+	get_parent()._handle_pointer_event(event)
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bqjii"]
 resource_local_to_scene = true
@@ -44,7 +51,7 @@ collision_mask = 0
 [node name="Panel3D" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
 material_override = SubResource("ShaderMaterial_w8rdk")
-mesh = SubResource("QuadMesh_dplrn")
+mesh = SubResource("QuadMesh_o18gj")
 skeleton = NodePath("../..")
 script = ExtResource("3_skm86")
 size = Vector2(0.04, 0.04)
@@ -63,11 +70,19 @@ outline_size = 0
 autowrap_mode = 3
 width = 40.0
 
+[node name="Icon" type="Sprite3D" parent="Body"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+visible = false
+pixel_size = 0.001
+double_sided = false
+alpha_cut = 1
+
 [node name="FingerArea" type="Area3D" parent="." groups=["ui_focus_skip"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075)
 collision_layer = 4
 collision_mask = 0
 monitoring = false
+script = SubResource("GDScript_6m35c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FingerArea"]
 shape = SubResource("BoxShape3D_bqjii")
